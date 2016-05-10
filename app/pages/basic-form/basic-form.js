@@ -1,12 +1,11 @@
 import {Page} from 'ionic-angular';
 
 @Page({
-  templateUrl: 'build/pages/hello-ionic/hello-ionic.html',
+  templateUrl: 'build/pages/basic-form/basic-form.html',
 })
 
-export class HelloIonicPage {
+export class BasicformPage {
   constructor() {
-    // let's two way bind
     this.myData = null;
   }
 
