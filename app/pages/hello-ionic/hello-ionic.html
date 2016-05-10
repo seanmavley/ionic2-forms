@@ -1,0 +1,25 @@
+<ion-navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello Ionic</ion-title>
+</ion-navbar>
+<ion-content padding class="getting-started">
+    <p>
+      Form values submitted will be displayed in console. F12 on Chrome to open console
+    </p>
+    <ion-list inset>
+        <form #formData='ngForm' (ngSubmit)="onSubmit(formData.value)">
+            <ion-item>
+                <ion-label floating>My Text here</ion-label>
+                <ion-input type="text" ngControl="mytext"></ion-input>
+            </ion-item>
+            <button block>
+                <ion-icon name="add"></ion-icon>Add</button>
+        </form>
+    </ion-list>
+    <!-- Angular 2 way of doing <p ngShow="myData"> bla bla </p> -->
+    <p *ngIf="myData">
+      You submitted "<strong>{{ myData.mytext }}"</strong>
+    </p>
+</ion-content>
