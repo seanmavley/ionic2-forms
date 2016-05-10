@@ -29,7 +29,7 @@ class MyApp {
         this.pages = [
             { title: 'Basic Form', component: BasicformPage },
             { title: 'Form Builder', component: BuildformPage },
-            { title: 'Form Validate', component: FormvalidatePage }
+            { title: 'Form Builder w/ Validate', component: FormvalidatePage }
         ];
 
         // make BasicformPage the root (or first) page

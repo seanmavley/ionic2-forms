@@ -21,6 +21,7 @@
                 <ion-textarea type="text" [ngFormControl]="myForm.controls['message']"></ion-textarea>
             </ion-item>
             <p *ngIf="!message.valid && message.touched" danger>Message is empty</p>
+            <!-- TODO disable the button if form is invalid -->
             <button block>
                 <ion-icon name="add"></ion-icon>Add</button>
         </form>
