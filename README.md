@@ -2,7 +2,7 @@
 
 Screenshot:
 [![ionic 2 basic form][2]][2]
-[2]: http://i.stack.imgur.com/JfbVb.png
+[2]: http://i.imgur.com/Yj4H8Am.png
 
 Test it out locally
 - Clone this repo
