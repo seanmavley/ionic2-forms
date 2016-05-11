@@ -12,7 +12,7 @@
         <form [ngFormModel]="myForm" (ngSubmit)="onSubmit(myForm.value)">
             <ion-item>
                 <ion-label floating>Subject</ion-label>
-                <ion-input type="text" [ngFormControl]="myForm.controls['subject']"></ion-input>
+                <ion-input type="text" [ngFormControl]="myForm.controls['subject']" required></ion-input>
             </ion-item>
             <p *ngIf="!subject.valid && subject.touched" danger>Subject is empty</p>
             <p *ngIf="subject.hasError('required') && subject.touched" danger>Subject is required</p>
@@ -20,9 +20,8 @@
                 <ion-label floating>Message</ion-label>
                 <ion-textarea type="text" [ngFormControl]="myForm.controls['message']"></ion-textarea>
             </ion-item>
-            <p *ngIf="!message.valid && message.touched" danger>Message is empty</p>
-            <!-- TODO disable the button if form is invalid -->
-            <button block>
+            <p *ngIf="!message.valid && message.touched" danger required>Message is empty</p>
+            <button block [disabled]="!subject.valid || !message.valid">
                 <ion-icon name="add"></ion-icon>Add</button>
         </form>
     </ion-list>
