@@ -6,10 +6,34 @@
 </ion-navbar>
 <ion-content padding class="getting-started">
     <p>
-      Form values submitted will be displayed in console. F12 on Chrome to open console
+        Form values submitted will be displayed in console. F12 on Chrome to open console
     </p>
     <ion-list inset>
         <form #formData='ngForm' (ngSubmit)="onSubmit(formData.value)">
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <label>Materialize Select</label>
+            <ion-input list="browsers" name="browser" class="mdl-selectfield" placeholder="Start writing">
+                <ion-label>Browsers</ion-label>
+            </ion-input>
+            <datalist id="browsers">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="Internet Explorer"></option>
+                <option value="Firefox"></option>
+                <option value="Chrome"></option>
+                <option value="Opera"></option>
+                <option value="Safari"></option>
+            </datalist>
+            <ion-item class="for-select">
+                <ion-label>Category</ion-label>
+                <ion-select cancelText="cancel" okText="Okay!">
+                    <ion-option value="me">Select me</ion-option>
+                </ion-select>
+            </ion-item>
             <ion-item>
                 <ion-label floating>My Text here</ion-label>
                 <ion-input type="text" ngControl="mytext"></ion-input>
@@ -20,6 +44,6 @@
     </ion-list>
     <!-- Angular 2 way of doing <p ngShow="myData"> bla bla </p> -->
     <p *ngIf="myData">
-      You submitted "<strong>{{ myData.mytext }}"</strong>
+        You submitted "<strong>{{ myData.mytext }}"</strong>
     </p>
 </ion-content>
