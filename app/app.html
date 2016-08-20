@@ -1,0 +1,20 @@
+<style type="text/css">
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+</style>
+<ion-menu [content]="content">
+    <ion-toolbar>
+        <ion-title class="center">Hello Ionized!</ion-title>
+    </ion-toolbar>
+    <ion-content>
+        <ion-list>
+            <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                {{p.title}}
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav id="nav" #nav [root]="rootPage" #content swipe-back-enabled="true"></ion-nav>

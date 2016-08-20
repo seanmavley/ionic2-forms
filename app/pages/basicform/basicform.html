@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+        <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Basic Form</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <p>
+        Form values submitted will be displayed in console. F12 on Chrome to open console
+    </p>
+    <ion-list inset>
+        <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+            <ion-item class="for-select">
+                <ion-label>Category</ion-label>
+                <ion-select cancelText="cancel" okText="Okay!" [ngModel]="selecttext" name="category">
+                    <ion-option value="accomodation">Accomodation</ion-option>
+                    <ion-option value="salary">Salary</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>My Text here</ion-label>
+                <ion-input type="text" [(ngModel)]="mytext" name="mytext"></ion-input>
+            </ion-item>
+            <button block>
+                <ion-icon name="add"></ion-icon>Add</button>
+        </form>
+    </ion-list>
+    <!-- Angular 2 way of doing <p ngShow="myData"> bla bla </p> -->
+    <p *ngIf="myData">
+        You submitted "<strong>{{ myData.mytext }}"</strong> and <strong>"{{ myData.selecttext }}"</strong>
+    </p>
+</ion-content>
