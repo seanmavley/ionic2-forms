@@ -1,5 +1,6 @@
 {
-  "name": "MyIonic2Project",
+  "name": "ionic2formsTypescript",
   "app_id": "",
-  "v2": true
+  "v2": true,
+  "typescript": true
 }
