@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Build Form</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+        <ion-item>
+            <ion-label floating>Subject</ion-label>
+            <ion-input type="text" formControlName="subject" name="subject"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Message</ion-label>
+            <ion-textarea type="text" formControlName="message" name="message"></ion-textarea>
+        </ion-item>
+        <button block>
+            <ion-icon name="add"></ion-icon>Add</button>
+    </form>
+    <h2>In realtime</h2>
+    <p>
+        {{ myForm.value | json }}
+    </p>
+    <h2>Submitted</h2>
+    <p>
+        {{ myData | json }}
+    </p>
+</ion-content>
