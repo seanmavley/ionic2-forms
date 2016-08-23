@@ -23,8 +23,8 @@
     <p>
         {{ myForm.value | json }}
     </p>
-    <h2>Submitted</h2>
-    <p>
+    <h2 *ngIf="myData">Submitted</h2>
+    <p *ngIf="myData">
         {{ myData | json }}
     </p>
 </ion-content>

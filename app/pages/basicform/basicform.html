@@ -11,24 +11,33 @@
         Form values submitted will be displayed in console. F12 on Chrome to open console
     </p>
     <ion-list inset>
-        <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+        <form #myForm='ngForm' (ngSubmit)="onSubmit(myForm)">
             <ion-item class="for-select">
                 <ion-label>Category</ion-label>
-                <ion-select cancelText="cancel" okText="Okay!" [ngModel]="selecttext" name="category">
+                <ion-select cancelText="cancel" okText="Okay!" [ngModel]="category" name="category">
                     <ion-option value="accomodation">Accomodation</ion-option>
                     <ion-option value="salary">Salary</ion-option>
                 </ion-select>
             </ion-item>
             <ion-item>
-                <ion-label floating>My Text here</ion-label>
-                <ion-input type="text" [(ngModel)]="mytext" name="mytext"></ion-input>
+                <ion-label floating>Subject</ion-label>
+                <ion-input type="text" [(ngModel)]="subject" name="subject"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Message</ion-label>
+                <ion-textarea type="text" [(ngModel)]="message" name="message"></ion-textarea>
             </ion-item>
             <button block>
                 <ion-icon name="add"></ion-icon>Add</button>
         </form>
     </ion-list>
     <!-- Angular 2 way of doing <p ngShow="myData"> bla bla </p> -->
+    <h2>In realtime</h2>
+    <p>
+        {{ myForm.value | json }}
+    </p>
+    <h2 *ngIf="myData">Submitted</h2>
     <p *ngIf="myData">
-        You submitted "<strong>{{ myData.mytext }}"</strong> and <strong>"{{ myData.selecttext }}"</strong>
+        {{ myData | json }}
     </p>
 </ion-content>
