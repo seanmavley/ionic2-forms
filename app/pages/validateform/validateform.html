@@ -11,22 +11,31 @@
         <ion-item>
             <ion-label floating>Subject</ion-label>
             <ion-input type="text" formControlName="subject" name="subject"></ion-input>
-            <p *ngIf="myForm.controls.subject.valid" danger>Invalid form</p>
         </ion-item>
+        <p [hidden]="myForm.controls.subject.valid" danger padding-left>Subject is empty</p>
         <ion-item>
             <ion-label floating>Message</ion-label>
             <ion-textarea type="text" formControlName="message" name="message"></ion-textarea>
         </ion-item>
-        <button block>
+        <p [hidden]="myForm.controls.message.valid" danger padding-left>Message field is empty</p>
+        <button block [disabled]="!myForm.controls.subject.valid || !myForm.controls.message.valid">
             <ion-icon name="add"></ion-icon>Add</button>
     </form>
-    <h2>In realtime</h2>
-    {{ myForm.controls.subject.valid }}
+    <!--     <p [hidden]="myForm.controls.subject.hasError('required') && myForm.controls.subject.touched" danger>Subject is required</p> -->
+    <h2>In realtime</h2> Form is valid?: <strong>{{ myForm.valid }}</strong>
     <p>
         {{ myForm.value | json }}
     </p>
-    <h2 *ngIf="myData">Submitted</h2>
-    <p *ngIf="myData">
-        {{ myData | json }}
-    </p>
+    <div *ngIf="myData">
+        <h2>Submitted</h2>
+        <p>
+            {{ myData | json }}
+        </p>
+        <h5>Consider this a more of 3-step validation.</h5>
+        <ul>
+            <li>First, we validate in the template by disabling submit button.</li>
+            <li>Next we display error messages in realtime</li>
+            <li>Third, we verify if form is valid before submission happens in controller</li>
+        </ul>
+    </div>
 </ion-content>
