@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+        <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Validate Form</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+        <ion-item>
+            <ion-label floating>Subject</ion-label>
+            <ion-input type="text" formControlName="subject" name="subject"></ion-input>
+            <p *ngIf="myForm.controls.subject.valid" danger>Invalid form</p>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Message</ion-label>
+            <ion-textarea type="text" formControlName="message" name="message"></ion-textarea>
+        </ion-item>
+        <button block>
+            <ion-icon name="add"></ion-icon>Add</button>
+    </form>
+    <h2>In realtime</h2>
+    {{ myForm.controls.subject.valid }}
+    <p>
+        {{ myForm.value | json }}
+    </p>
+    <h2 *ngIf="myData">Submitted</h2>
+    <p *ngIf="myData">
+        {{ myData | json }}
+    </p>
+</ion-content>

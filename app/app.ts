@@ -4,6 +4,7 @@ import {StatusBar} from 'ionic-native';
 import {TabsPage} from './pages/tabs/tabs';
 import {BasicformPage} from './pages/basicform/basicform';
 import {BuildformPage} from './pages/buildform/buildform';
+import {ValidateformPage} from './pages/validateform/validateform';
 import {AboutPage} from './pages/about/about';
 
 @Component({
@@ -18,12 +19,14 @@ export class MyApp {
 
   constructor(private platform: Platform, private menu: MenuController) {
     // this.rootPage = BuildformPage;
-    this.rootPage = TabsPage;
+    this.rootPage = ValidateformPage;
+    // this.rootPage = TabsPage;
     this.menu = menu;
 
     this.pages = [
         { title: 'Basic', component: BasicformPage },
         { title: 'Build Form', component: BuildformPage},
+        { title: 'Validate Form', component: ValidateformPage },
         { title: 'About', component: AboutPage }
     ];
     platform.ready().then(() => {
