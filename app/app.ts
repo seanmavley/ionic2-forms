@@ -19,8 +19,8 @@ export class MyApp {
 
   constructor(private platform: Platform, private menu: MenuController) {
     // this.rootPage = BuildformPage;
-    this.rootPage = ValidateformPage;
-    // this.rootPage = TabsPage;
+    // this.rootPage = ValidateformPage;
+    this.rootPage = TabsPage;
     this.menu = menu;
 
     this.pages = [
